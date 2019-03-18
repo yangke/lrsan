@@ -229,6 +229,14 @@ void CriticalVarPass::markAllEdgesToBlock(
 }
 
 /// Add edges to analyze for a phinode.
+// Anotate by yangke start
+//            IV
+//            |
+// inBB={x1={10,11},x2={1,3}}
+//        ^         ^
+//        |         |
+// PN=phi(x1_x2)
+// Anotate by yangke end
 void CriticalVarPass::addPHINodeEdges(PHINode *PN, 
 		std::list<EdgeValue> &EV) {
 	BasicBlock *BB = PN->getParent();
